@@ -73,19 +73,10 @@ const products = [
   },
 ];
 
-/**
- * Retrieve the full list of products.
- * @returns {Array<{id: number, name: string, price: number, image: string, description: string}>} The array of product objects.
- */
 export function getProducts() {
   return products;
 }
 
-/**
- * Retrieve a product by its identifier.
- * @param {string|number} id - Product identifier to look up.
- * @returns {{id:number,name:string,price:number,image:string,description:string}|undefined} The product with a matching `id`, or `undefined` if no match is found.
- */
 export function getProductById(id) {
   return products.find((p) => p.id === Number(id));
 }

@@ -5,22 +5,22 @@ import Checkout from "./pages/Checkout";
 import Navbar from "./components/Navbar";
 
 import "./App.css";
+import AuthProvider from "./context/AuthContext";
+import ProductDetails from "./pages/ProductDetails";
 
-/**
- * Root application component that renders the navigation bar and client-side routes.
- * 
- * @returns {JSX.Element} The top-level JSX element containing the Navbar and route definitions for "/", "/auth", and "/checkout".
- */
 function App() {
   return (
-    <div className="app">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/checkout" element={<Checkout />} />
-      </Routes>
-    </div>
+    <AuthProvider>
+      <div className="app">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+        </Routes>
+      </div>
+    </AuthProvider>
   );
 }
 
